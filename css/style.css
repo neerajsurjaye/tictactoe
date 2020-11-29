@@ -1,0 +1,70 @@
+:root{
+    --grid-border:5px;
+    --back-color:#222831;
+    --card-color:#393e46;
+    --border-blue:#00adb5;
+    --text-white:#eeeeee;
+}
+
+body{
+    display: flex;
+    margin: 0%;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #222831;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+#container{
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    width: 70vh;
+    height: 70vh;
+    border-radius: 50px;
+    background-color: var(--card-color);
+}
+
+
+/*grid*/
+.grid-row{
+    width: 100%;
+    flex:1; 
+    display: flex;
+}
+
+.grid{
+    flex: 1;
+    height: 100%;
+    box-sizing: border-box;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-white);
+    font-size: 10rem;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+
+
+.borderLeft{
+    border-left:solid var(--grid-border) var(--border-blue); 
+
+}
+
+.borderRight{
+    border-right:solid var(--grid-border) var(--border-blue); 
+}
+.borderDown{
+    border-bottom:solid var(--grid-border) var(--border-blue); 
+}
+.borderTop{
+    border-top:solid var(--grid-border) var(--border-blue); 
+}
