@@ -45,6 +45,42 @@ let gameBoard = (()=>{
         return false;
     }
 
+    //Check winning condition
+    let check_win = ()=>{
+        let won = false;
+
+        for(var i = 0 ; i < 3 ; i++){
+            //check columns
+            if(board[3*i] == board[1 + (3*i)] &&  board[1 + (3*i)] == board[2 + (3*i)] && board[3*i] != ""){
+                
+                won = true;
+            }
+            if(board[i] == board[3+i] && board[3+i] == board[6+i] && board[i] != ""){
+                won = true;
+                
+            }
+        }
+
+        if(board[0] == board[4] && board[4] == board[8] && board[0] != ""){
+            won = true;
+        }
+
+        if(board[2] == board[4] && board[4] ==  board[6] && board[2] != ""){
+            won = true;
+        }
+
+        return won;
+    }
+
+    let check_draw = ()=>{
+        for(var i = 0 ; i < 9 ; i++){
+            if(board[i] == ""){
+                return false;
+            }
+        }
+        return true;
+    }
+
     //initializes board
     let init = ()=>{
         for(var i = 0 ; i < 9 ; i++){
@@ -53,7 +89,7 @@ let gameBoard = (()=>{
     }
     init();
 
-    return{set , get, overW , printBoard , get_at , check};
+    return{set , get, overW , printBoard , get_at , check , check_win , check_draw , init};
 }
 )();
 
@@ -104,11 +140,11 @@ let players = ()=>{
 
 let displayController = (() => {
 
-    let body = document.querySelector("body");
+    let mid = document.querySelector("#mid");
 
     let container = document.createElement("div");
     container.id = "container";
-    body.appendChild(container);
+    mid.appendChild(container);
 
 
     let grid = [];
@@ -185,15 +221,29 @@ let gameController = (() =>{
 
     playerA.setChar("X");
     playerB.setChar("O");
+    playerA.setName("john");
+    playerB.setName("Ben");
 
     //updates board after click event
     let updateBoard = (e)=>{
 
         let location = parseInt(e.target.dataset.location);
         if(gameBoard.set(location , CurrentPlayer.getChar())){
-            changePlayer();
+            displayController.updateBoard();
+            if(gameBoard.check_win()){
+                console.log("won : " , CurrentPlayer.getName());
+                game_reset();
+            }
+            else if(gameBoard.check_draw()){
+                console.log("draw");
+                game_reset();
+            }
+            else{
+                changePlayer();
+            }
         }
-        displayController.updateBoard();
+        
+        
         
     }
 
@@ -208,6 +258,13 @@ let gameController = (() =>{
     }
 
     container.addEventListener("click" , updateBoard);
+
+
+    let game_reset = ()=>{
+        gameBoard.init();
+        displayController.updateBoard();
+        CurrentPlayer = playerA;
+    }
 
     
 })();
