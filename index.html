@@ -12,8 +12,8 @@
                 <div class="inputs">
                     <form>
                         <input type="text" id="playerA" class="primary-input" placeholder="Enter Name">
-                        <input type="button" value = "Human" class="primary-btn">
-                        <input type="button" value = "AI"  class="primary-btn">
+                        <input type="button" value = "Human" class="primary-btn" id = "playerA-h">
+                        <input type="button" value = "AI"  class="primary-btn" id = "playerA-a">
                     </form>
                 </div>
                 <div class="inputs">
@@ -23,9 +23,9 @@
                 </div>
                 <div class="inputs">
                     <form>
-                        <input type="text" id="playerA" class="primary-input" placeholder="Enter Name">
-                        <input type="button" value = "Human"  class="primary-btn">
-                        <input type="button" value = "AI"  class="primary-btn">
+                        <input type="text" id="playerB" class="primary-input" placeholder="Enter Name">
+                        <input type="button" value = "Human"  class="primary-btn" id = "playerB-h">
+                        <input type="button" value = "AI"  class="primary-btn" id = "playerB-a">
                     </form>
                 </div>
                 
@@ -38,6 +38,14 @@
             <div id="footer">
                 <label>By:Neeraj Surjaye</label>
             </div>
+        </div>
+
+
+        <div id = "game-screen">
+            <div id = "game-condition"></div>
+            <div id = "player-won"></div>
+            <input type="button" value="Play Again" id = "play-again" class="primary-btn">
+
         </div>
     </body>
     <script src="./scripts/script.js"></script>
