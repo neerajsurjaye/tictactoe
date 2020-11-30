@@ -127,6 +127,8 @@ body{
 
 #footer label{
     margin-left: auto;
+    justify-self: flex-end;
+    align-self: flex-end;
     margin-right: 20px;
 }
 
@@ -157,7 +159,7 @@ body{
     background-color: var(--button);
     width: 80%;
     align-self: center;
-    margin: 1rem 0;
+    margin: 8px 0;
 }
 
 /*button*/
@@ -244,4 +246,99 @@ body{
     text-transform: uppercase;
     color: #ccc;
 
+}
+
+
+@media(max-height:900px){
+    
+
+    #contents{
+        padding-top: 2px;
+    }
+
+    #small-break{
+        margin: 8px 0;
+    }
+
+    .primary-btn{
+        height: 1.8rem;
+        width: 50%;
+    }
+
+    .break-line{
+        height: 1px;
+        margin: 4px 0;
+    }
+
+    #container{
+        margin: 10px;
+    }
+}
+
+
+@media(max-width: 1080px){
+    body{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    #contents{
+        width:100%;
+        height: 99.7%;
+        margin: 0%;
+        align-self: center;
+    }
+
+    #container{
+        width: 95vw;
+        height: 95vw;
+    }
+
+    #contents > label{
+        font-size: 5rem;
+    }
+    .primary-input{
+        height: 65px;
+        font-size: 1.5rem;
+        padding-left: 20px;
+        margin-bottom: 10px;
+    }
+
+    .primary-btn{
+        height: 75px;
+        font-size: 2rem;
+    }
+
+    #header{
+        margin-top: 20px;
+    }
+
+    #small-break{
+        margin: 10px 0  ;
+        height: 5px;
+    }
+
+    #mid{
+
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    #footer{
+        margin-bottom: auto;
+        font-size: 2rem;
+    }
+
+
+    #game-condition{
+        font-size: 8rem;
+    }
+
+    #player-won{
+        font-size: 4rem;
+    }
+
+    #play-again{
+        width: 240px;
+    }
 }
